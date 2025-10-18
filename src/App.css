@@ -1,55 +1,8 @@
-/* Copy all the CSS from your original styles.css file here */
-/* I'm including the key parts, but you should copy your complete CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --primary: #1e6fdb;
-  --primary-light: #4ea0ff;
-  --primary-dark: #0a2a74;
-  --secondary: #ff6e6e;
-  --dark: #0a0f2c;
-  --darker: #070a1f;
-  --light: #e0e7ff;
-  --lighter: #f0f4ff;
-  --accent: #00ffaa;
-  --success: #4caf50;
-  --warning: #ff9800;
-  --danger: #f44336;
-  --font-main: 'Poppins', sans-serif;
-  --font-heading: 'Orbitron', sans-serif;
-  --font-serif: 'IBM Plex Serif', serif;
-  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.2);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.3);
-  --shadow-primary: 0 0 15px var(--primary-light);
-  --shadow-accent: 0 0 15px var(--accent);
-  --border-radius: 12px;
-  --max-width: 1200px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--dark);
-  background-image: 
-    linear-gradient(0deg, rgba(0, 123, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 123, 255, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-attachment: fixed;
-  color: var(--light);
-  font-family: var(--font-main);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
+/* Custom CSS tambahan di sini */
 .particles-background {
   position: fixed;
   width: 100%;
@@ -60,31 +13,21 @@ body {
   opacity: 0.3;
 }
 
-/* Add all your existing CSS styles here */
-/* Copy the complete CSS from your original file */
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    height: 100vh;
-    background: var(--darker);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    transition: var(--transition);
-    z-index: 1000;
+/* Custom utilities */
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-400 ease-in-out;
   }
-
-  .nav-menu.active {
-    right: 0;
+  
+  .btn-primary {
+    @apply bg-primary text-white shadow-lg shadow-primary/50 hover:shadow-primary/70 hover:scale-105;
   }
-
-  .hamburger {
-    display: flex;
+  
+  .btn-accent {
+    @apply bg-accent text-dark font-semibold shadow-lg shadow-accent/50 hover:shadow-accent/70 hover:scale-105;
+  }
+  
+  .card {
+    @apply bg-darker/80 backdrop-blur-sm border border-primary/20 rounded-xl shadow-lg hover:shadow-primary/20 transition-all duration-400;
   }
 }
